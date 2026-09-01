@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webity — Web Unity Editor</title>
+<link rel="stylesheet" href="css/editor.css">
+</head>
+<body>
+<div id="loading-screen">
+  <div class="loading-box">
+    <div class="loading-logo">Webity</div>
+    <div class="loading-sub">Opening Project&hellip;</div>
+    <div class="loading-bar"><div class="loading-bar-fill" id="loading-bar-fill"></div></div>
+    <div class="loading-step" id="loading-step">Initializing&hellip;</div>
+  </div>
+</div>
+
+<div id="editor-root" style="display:none">
+  <div id="menubar"></div>
+  <div id="toolbar"></div>
+  <div id="main-area">
+    <div id="left-col">
+      <div id="hierarchy-panel" class="panel">
+        <div class="panel-tabbar"><div class="panel-tab active">Hierarchy</div></div>
+        <div class="panel-body" id="hierarchy-body"></div>
+      </div>
+    </div>
+    <div class="vsplit" data-split="left"></div>
+    <div id="center-col">
+      <div id="viewport-panel" class="panel">
+        <div class="panel-tabbar" id="viewport-tabbar">
+          <div class="panel-tab" data-view="scene">Scene</div>
+          <div class="panel-tab" data-view="game">Game</div>
+          <div class="panel-tab" data-view="split">Scene | Game</div>
+          <div class="viewport-tools" id="viewport-tools"></div>
+        </div>
+        <div class="panel-body" id="viewport-body">
+          <canvas id="gl-canvas"></canvas>
+          <div id="scene-view-region" class="view-region">
+            <div class="view-label">Scene</div>
+            <div id="scene-overlay"></div>
+          </div>
+          <div id="game-view-region" class="view-region">
+            <div class="view-label">Game</div>
+            <div id="game-ui-root"></div>
+            <div id="game-focus-hint">Click to play &mdash; Esc to release cursor</div>
+            <div id="game-stats"></div>
+          </div>
+          <div id="script-editor-region" style="display:none"></div>
+        </div>
+      </div>
+      <div class="hsplit" data-split="bottom"></div>
+      <div id="bottom-panel" class="panel">
+        <div class="panel-tabbar" id="bottom-tabbar">
+          <div class="panel-tab" data-tab="project">Project</div>
+          <div class="panel-tab" data-tab="console">Console</div>
+          <div id="console-summary"></div>
+        </div>
+        <div class="panel-body">
+          <div id="project-body"></div>
+          <div id="console-body" style="display:none"></div>
+        </div>
+      </div>
+    </div>
+    <div class="vsplit" data-split="right"></div>
+    <div id="right-col">
+      <div id="inspector-panel" class="panel">
+        <div class="panel-tabbar"><div class="panel-tab active">Inspector</div></div>
+        <div class="panel-body" id="inspector-body"></div>
+      </div>
+    </div>
+  </div>
+  <div id="statusbar"><span id="status-msg"></span><span id="status-right"></span></div>
+</div>
+
+<div id="ctxmenu" style="display:none"></div>
+<div id="modal-root" style="display:none"></div>
+
+<!-- Engine core -->
+<script src="js/core/math.js"></script>
+<script src="js/core/meshes.js"></script>
+<script src="js/core/input.js"></script>
+<script src="js/core/audio.js"></script>
+<script src="js/core/renderer.js"></script>
+<script src="js/core/engine.js"></script>
+<script src="js/core/components.js"></script>
+<script src="js/core/physics.js"></script>
+<script src="js/core/particles.js"></script>
+<script src="js/core/uiRuntime.js"></script>
+<!-- C# runtime -->
+<script src="js/cs/lexer.js"></script>
+<script src="js/cs/parser.js"></script>
+<script src="js/cs/emitter.js"></script>
+<script src="js/cs/api.js"></script>
+<script src="js/cs/compiler.js"></script>
+<!-- Runtime loop -->
+<script src="js/runtime/game.js"></script>
+<!-- Demo project data -->
+<script src="js/project/demoScripts.js"></script>
+<script src="js/project/demoScene.js"></script>
+<!-- Editor -->
+<script src="js/editor/console.js"></script>
+<script src="js/editor/hierarchy.js"></script>
+<script src="js/editor/inspector.js"></script>
+<script src="js/editor/project.js"></script>
+<script src="js/editor/sceneview.js"></script>
+<script src="js/editor/codeeditor.js"></script>
+<script src="js/editor/toolbar.js"></script>
+<script src="js/editor/build.js"></script>
+<script src="js/editor/editor.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
